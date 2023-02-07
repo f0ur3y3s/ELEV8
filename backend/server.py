@@ -4,8 +4,31 @@ from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
+# import the database.py file
+from database import Database
+
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+##################################
+# Custom definitions
+###################################
+
+# create a database object
+db = Database("workouts.sqlite")
 
 class Workout(BaseModel):
     name: str
@@ -25,9 +48,13 @@ async def create(workout: Workout, request: Request):
 
 # read
 @app.get("/read")
-async def read(workout: Workout, request: Request):
-    print(workout.name)
-    return {"message": "Read"}
+async def read(request: Request):
+    workouts = db.view()
+    print(workouts)
+    return workouts
+# async def read(workout: Workout, request: Request):
+    # print(workout.name)
+    # return {"message": "Read"}
 
 # update
 @app.put("/update")

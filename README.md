@@ -27,3 +27,7 @@ Phase 4:
 
 Phase 5:
 - [ ] Create a basic social feed for video proof of lifts
+
+
+## Definitions
+
