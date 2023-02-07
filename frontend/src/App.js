@@ -1,22 +1,27 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+// import create
+import CreateButton from './create.js';
+import UpdateButton from './update.js';
+import DeleteButton from './delete.js';
+// import ReadButton from './read.js';
+import NewWorkoutForm from './newworkout';
+import WorkoutCards from './read.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <NewWorkoutForm />
+        <br></br>
+        {/* <CreateButton /> */}
+        <UpdateButton />
+        <DeleteButton />
+        {/* <ReadButton /> */}
+        <WorkoutCards />
       </header>
     </div>
   );
