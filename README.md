@@ -28,6 +28,19 @@ Phase 4:
 Phase 5:
 - [ ] Create a basic social feed for video proof of lifts
 
+## Relationships
+
+Users: To store user details such as ID, name, email, etc.
+
+Exercises: To store details about exercises, like the name of the exercise, an explanation, etc. This can all be universally shared among users.
+
+Workouts: To store workout details like date, user_id (to link a workout to a user), and optionally any additional info related to the workout.
+
+WorkoutExercises: A junction table that connects workouts and exercises. It will store a workoutid (connecting it to the Workouts table) and an exerciseid (connecting it to the Exercises table). This table makes it possible to represent multiple exercises in a single workout session, as well as enables multiple users to add exercises within a workout.
+
+SetsReps: A table to store the sets and reps for a given workoutexercise. You would include columns for workoutexercise_id (connecting it to the WorkoutExercises table), sets, and reps.
+
+
 
 ## Definitions
 

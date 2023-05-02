@@ -9,7 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 # import the database.py file
 from database import Database
 
-
 app = FastAPI()
 
 origins = ["*"]
@@ -21,7 +20,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 ##################################
 # Custom definitions
@@ -36,6 +34,15 @@ class Workout(BaseModel):
     reps: int
     weight: int
 
+class Update(BaseModel):
+    id: int
+    name: str
+    bodypart: str
+    reps: int
+    weight: int
+
+class GroupBy(BaseModel):
+    bodypart: str
 #################################
 # FastAPI Endpoints
 #################################
@@ -44,22 +51,35 @@ class Workout(BaseModel):
 @app.post("/create")
 async def create(workout: Workout, request: Request):
     print(workout.name)
+    db.insert(workout.name, workout.bodypart, workout.reps, workout.weight)
     return {"message": "Create"}
 
 # read
 @app.get("/read")
 async def read(request: Request):
     workouts = db.view()
-    print(workouts)
-    return workouts
-# async def read(workout: Workout, request: Request):
-    # print(workout.name)
-    # return {"message": "Read"}
+    # parse workouts into proper json
+    data = {}
+    data["workouts"] = workouts
+    return data
+
+@app.get("/groupby")
+async def groupby(bodypart: GroupBy, request: Request):
+    workouts = db.filter(bodypart)
+    # parse workouts into proper json
+    data = {}
+    data[bodypart] = workouts
+    return data
+
 
 # update
 @app.put("/update")
-async def update(workout: Workout, request: Request):
-    print(workout.name)
+# async def update(workout: Workout, request: Request):
+#     print(workout.name)
+#     return {"message": "Update"}
+async def update(toUpdate: Update, request: Request):
+    # print(toUpdate.name)
+    db.update(toUpdate.id, toUpdate.name, toUpdate.bodypart, toUpdate.reps, toUpdate.weight)
     return {"message": "Update"}
 
 # delete
