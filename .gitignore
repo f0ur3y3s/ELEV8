@@ -1,3 +1,4 @@
 *.bkp/
 package-lock.json
 test*
+node_modules/*
