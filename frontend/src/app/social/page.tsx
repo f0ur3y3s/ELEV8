@@ -9,10 +9,13 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-export default function TestPage() {
+export default function Page() {
     return (
         <div>
             <Navbar>
+                <div className="text-4xl text-accent-foreground">
+                    Social
+                </div>
                 <Card>
                     <CardHeader>
                         <CardTitle>Card Title</CardTitle>
