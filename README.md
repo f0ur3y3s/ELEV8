@@ -44,3 +44,114 @@ SetsReps: A table to store the sets and reps for a given workoutexercise. You wo
 
 ## Definitions
 
+```
+// Define the database structure for users, follows, and posts
+
+Table exercises {
+  exercise_id integer [primary key, increment]
+  name varchar
+  description text
+  default_reps integer
+  default_sets integer
+  default_weight integer
+  created_at timestamp
+}
+
+Table workout_templates {
+  template_id integer [primary key, increment]
+  template_name varchar
+  created_at timestamp
+}
+
+Table workout_template_exercises {
+  template_id integer
+  exercise_id integer
+  created_at timestamp
+
+  // Defining the relationship
+}
+Ref: workout_template_exercises.template_id > workout_templates.template_id
+Ref: workout_template_exercises.exercise_id > exercises.exercise_id
+
+Table workouts {
+  workout_id integer [primary key, increment]
+  template_id integer
+  workout_date date
+  notes text
+  created_at timestamp
+
+  // Defining the relationship
+}
+Ref: workouts.template_id > workout_templates.template_id
+
+Table workout_entries {
+  workout_entry_id integer [primary key, increment]
+  workout_id integer
+  exercise_id integer
+  custom_reps integer
+  custom_sets integer
+  custom_weight integer
+  created_at timestamp
+
+  // Defining the relationships
+}
+Ref: workout_entries.workout_id > workouts.workout_id
+Ref: workout_entries.exercise_id > exercises.exercise_id
+
+```
+
+```
+// Define the database structure for exercises, workout templates, and workouts
+
+Table exercises {
+  exercise_id integer [primary key, increment]
+  name varchar
+  description text
+  created_at timestamp
+}
+
+Table workout_templates {
+  template_id integer [primary key, increment]
+  template_name varchar
+  created_at timestamp
+}
+
+Table workout_template_exercises {
+  template_id integer
+  exercise_id integer
+  default_reps integer
+  default_sets integer
+  default_weight integer
+  created_at timestamp
+
+  // Defining the relationship
+}
+  Ref: workout_template_exercises.template_id > workout_templates.template_id
+  Ref: workout_template_exercises.exercise_id > exercises.exercise_id
+
+Table workouts {
+  workout_id integer [primary key, increment]
+  template_id integer
+  workout_date date
+  notes text
+  created_at timestamp
+
+  // Defining the relationship
+}
+  Ref: workouts.template_id > workout_templates.template_id
+
+Table workout_entries {
+  workout_entry_id integer [primary key, increment]
+  workout_id integer
+  exercise_id integer
+  custom_reps integer
+  custom_sets integer
+  custom_weight integer
+  created_at timestamp
+
+  // Defining the relationships
+}
+  Ref: workout_entries.workout_id > workouts.workout_id
+  Ref: workout_entries.exercise_id > exercises.exercise_id
+
+```
