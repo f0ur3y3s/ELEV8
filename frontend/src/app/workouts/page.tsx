@@ -13,21 +13,23 @@ export default function TestPage() {
     return (
         <div>
             <Navbar>
-                <div className="text-4xl text-accent-foreground">
-                    Workouts
+                <div className="mx-auto grid w-full max-w-6xl gap-2">
+                    <h1 className="text-3xl font-semibold">Workouts</h1>
                 </div>
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Card Title</CardTitle>
-                        <CardDescription>This is a card description</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <p>This is the card content</p>
-                    </CardContent>
-                    <CardFooter>
-                        <button className="btn">Click me</button>
-                    </CardFooter>
-                </Card>
+                <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Card Title</CardTitle>
+                            <CardDescription>This is a card description</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <p>This is the card content</p>
+                        </CardContent>
+                        <CardFooter>
+                            <button className="btn">Click me</button>
+                        </CardFooter>
+                    </Card>
+                </div>
             </Navbar>
         </div>
     );

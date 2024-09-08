@@ -9,7 +9,8 @@ import {
     Users2,
     Dumbbell,
     Activity,
-    User
+    User,
+    LogOut,
     // File,
     // ListFilter,
     // MoreHorizontal,
@@ -74,12 +75,12 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                         ))}
                     </TooltipProvider>
                 </nav>
-                <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
+                {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link
-                                    href="#"
+                                    href="/settings"
                                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-primary md:h-8 md:w-8"
                                 >
                                     <Settings className="h-5 w-5" />
@@ -89,7 +90,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                             <TooltipContent side="right">Settings</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                </nav>
+                </nav> */}
             </aside>
             <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
                 <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 justify-between">
@@ -120,13 +121,13 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                         {item.name}
                                     </Link>
                                 ))}
-                                <Link
+                                {/* <Link
                                     href="#"
                                     className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                                 >
                                     <Settings className="h-5 w-5" />
                                     Settings
-                                </Link>
+                                </Link> */}
                             </nav>
                         </SheetContent>
                     </Sheet>
@@ -146,10 +147,26 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                             <DropdownMenuContent align="end">
                                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>Settings</DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <User className="h-4 w-4 mr-2" />
+                                    <a href="/account/settings">
+                                        Profile
+                                    </a>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Settings className="h-4 w-4 mr-2" />
+                                    <a href="/account/settings">
+                                        Settings
+                                    </a>
+                                </DropdownMenuItem>
                                 <DropdownMenuItem>Support</DropdownMenuItem>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>Logout</DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <LogOut className="h-4 w-4 mr-2" />
+                                    <a href="/">
+                                        Logout
+                                    </a>
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
