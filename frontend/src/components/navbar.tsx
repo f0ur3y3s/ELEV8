@@ -47,7 +47,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
 
     return (
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
-            <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+            <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-card sm:flex">
                 <nav className="flex flex-col items-center gap-4 px-2 py-4">
                     <Link
                         href="#"
@@ -138,7 +138,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                 <Button
                                     variant="outline"
                                     size="icon"
-                                    className="overflow-hidden rounded-full text-muted-foreground hover:text-primary"
+                                    className="overflow-hidden rounded-full text-muted-foreground hover:text-primary bg-card hover:bg-accent"
                                 >
                                     <User className="h-5 w-5" />
                                 </Button>
