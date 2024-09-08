@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/layout/navbar";
 
 import {
     Area,
@@ -49,10 +49,8 @@ export default function Analytics() {
         <div>
             <Navbar>
                 <div className="mx-auto grid w-full max-w-6xl gap-2">
-                    <h1 className="text-3xl font-semibold  text-secondary-foreground">Analytics</h1>
+                    <h1 className="text-3xl font-semibold text-accent-foreground">Analytics</h1>
                 </div>
-                {/* <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]"> */}
-                {/* placeholder chart content */}
                 <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
                     <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
                         <Card

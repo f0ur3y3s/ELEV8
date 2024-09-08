@@ -11,6 +11,7 @@ import {
     Activity,
     User,
     LogOut,
+    CircleHelp,
     // File,
     // ListFilter,
     // MoreHorizontal,
@@ -75,22 +76,6 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                         ))}
                     </TooltipProvider>
                 </nav>
-                {/* <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Link
-                                    href="/settings"
-                                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-primary md:h-8 md:w-8"
-                                >
-                                    <Settings className="h-5 w-5" />
-                                    <span className="sr-only">Settings</span>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent side="right">Settings</TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                </nav> */}
             </aside>
             <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
                 <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 justify-between">
@@ -102,7 +87,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="left" className="sm:max-w-xs backdrop-blur-sm">
-                            <nav className="grid gap-6 text-lg font-medium">
+                            <nav className="grid gap-4 text-lg font-medium">
                                 <Link
                                     href="#"
                                     className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
@@ -115,19 +100,12 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                     <Link
                                         key={item.name}
                                         href={item.link}
-                                        className={`flex items-center gap-4 px-2.5 ${currentPath === item.link ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground '}`}
+                                        className={`flex items-center gap-2 py-2 px-2.5 rounded-lg ${currentPath === item.link ? 'bg-accent text-accent-foreground font-bold' : 'text-muted-foreground hover:text-foreground '}`}
                                     >
                                         <item.icon className="h-5 w-5" />
                                         {item.name}
                                     </Link>
                                 ))}
-                                {/* <Link
-                                    href="#"
-                                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                                >
-                                    <Settings className="h-5 w-5" />
-                                    Settings
-                                </Link> */}
                             </nav>
                         </SheetContent>
                     </Sheet>
@@ -148,24 +126,37 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem>
-                                    <User className="h-4 w-4 mr-2" />
-                                    <a href="/account/settings">
-                                        Profile
-                                    </a>
+                                    <Link href="/account/settings" className="flex items-center">
+                                        <User className="h-4 w-4 mr-2" />
+                                        <span>
+                                            Profile
+                                        </span>
+                                    </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
-                                    <Settings className="h-4 w-4 mr-2" />
-                                    <a href="/account/settings">
-                                        Settings
-                                    </a>
+                                    <Link href="/account/settings" className="flex items-center">
+                                        <Settings className="h-4 w-4 mr-2" />
+                                        <span>
+                                            Settings
+                                        </span>
+                                    </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>Support</DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Link href="#" className="flex items-center">
+                                        <CircleHelp className="h-4 w-4 mr-2" />
+                                        <span>
+                                            Support
+                                        </span>
+                                    </Link>
+                                </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem>
-                                    <LogOut className="h-4 w-4 mr-2" />
-                                    <a href="/">
-                                        Logout
-                                    </a>
+                                    <Link href="/" className="flex items-center">
+                                        <LogOut className="h-4 w-4 mr-2" />
+                                        <span>
+                                            Logout
+                                        </span>
+                                    </Link>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/layout/navbar";
 
 import {
     Card,
@@ -42,7 +42,6 @@ export default function TestPage() {
                         </CardFooter>
                     </Card>
                 </div>
-
             </Navbar>
         </div>
     );
