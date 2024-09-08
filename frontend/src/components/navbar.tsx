@@ -115,7 +115,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                     <Link
                                         key={item.name}
                                         href={item.link}
-                                        className={`flex items-center gap-4 px-2.5 ${currentPath === item.link ? 'text-foreground' : 'text-muted-foreground hover:text-foreground '}`}
+                                        className={`flex items-center gap-4 px-2.5 ${currentPath === item.link ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground '}`}
                                     >
                                         <item.icon className="h-5 w-5" />
                                         {item.name}
