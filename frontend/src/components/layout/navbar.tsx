@@ -67,7 +67,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                         // className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-primary md:h-8 md:w-8"
                                         className={`flex h-9 w-9 items-center justify-center transition-colors hover:text-primary md:h-8 md:w-8 rounded-lg ${currentPath === item.link ? 'bg-accent text-accent-foreground' : 'text-muted-foreground '}`}
                                     >
-                                        <item.icon className="h-5 w-5" />
+                                        <item.icon className="h-5 w-5 hover:scale-110" />
                                         <span className="sr-only">{item.name}</span>
                                     </Link>
                                 </TooltipTrigger>
@@ -102,7 +102,7 @@ export default function Navbar({ children }: Readonly<{ children: React.ReactNod
                                         href={item.link}
                                         className={`flex items-center gap-2 py-2 px-2.5 rounded-lg ${currentPath === item.link ? 'bg-accent text-accent-foreground font-bold' : 'text-muted-foreground hover:text-foreground '}`}
                                     >
-                                        <item.icon className="h-5 w-5" />
+                                        <item.icon className="h-5 w-5 hover:scale-110" />
                                         {item.name}
                                     </Link>
                                 ))}
